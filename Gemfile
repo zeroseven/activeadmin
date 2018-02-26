@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Optional dependencies
 gem 'cancan'
 gem 'pundit'
+gem 'devise'
 
 # Utility gems used in both development & test environments
 gem 'rake'
