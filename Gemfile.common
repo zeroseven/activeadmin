@@ -3,6 +3,8 @@ gem 'cancan'
 gem 'pundit'
 gem 'jruby-openssl', '~> 0.10.1', platforms: :jruby
 
+gem "inherited_resources", git: "https://github.com/varyonic/inherited_resources", branch: "refactor-url-helpers"
+
 # Utility gems used in both development & test environments
 gem 'rake'
 gem 'parallel_tests'

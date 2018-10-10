@@ -9,6 +9,7 @@ branches:
   only:
     - master
     - 1-4-stable
+    - early_test_inherited_resources_refactor
 
 language: ruby
 
