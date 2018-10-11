@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'i18n/tasks'
 
 Dir.glob('config/locales/*.yml') do |locale_file|
   RSpec.describe locale_file do
@@ -11,6 +10,8 @@ Dir.glob('config/locales/*.yml') do |locale_file|
     it { is_expected.to be_a_subset_of 'config/locales/en.yml' }
   end
 end
+
+require 'i18n/tasks'
 
 RSpec.describe 'I18n' do
   let(:i18n) { I18n::Tasks::BaseTask.new }
