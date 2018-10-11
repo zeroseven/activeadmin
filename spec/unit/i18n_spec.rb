@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'i18n-spec'
 
 Dir.glob('config/locales/*.yml') do |locale_file|
   RSpec.describe locale_file do
