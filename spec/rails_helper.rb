@@ -11,6 +11,7 @@ end
 
 require ENV['RAILS_ROOT'] + '/config/environment'
 
+require 'capybara/rspec/matcher_proxies'
 require 'rspec/rails'
 
 # Disabling authentication in specs so that we don't have to worry about

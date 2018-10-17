@@ -47,8 +47,8 @@ group :test do
   gem 'jasmine-core', '2.9.1' # last release with Ruby 2.2 support.
   gem 'launchy'
   gem 'rails-i18n' # Provides default i18n for many languages
-  gem 'rspec-rails'
-  gem 'i18n-spec'
+  gem 'rspec-rails', require: false
+  gem 'i18n-spec', require: false
   gem 'sqlite3', platforms: :mri
   gem 'selenium-webdriver'
 end
