@@ -9,6 +9,7 @@ branches:
   only:
     - master
     - 1-4-stable
+    - point_back_to_upstream_capybara
 
 language: ruby
 
