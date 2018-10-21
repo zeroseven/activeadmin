@@ -232,28 +232,81 @@ jobs:
     steps:
       *test_steps
 
+  filter_branches:
+    docker:
+      - image: scratch
+
+    steps:
+      - run: echo "Dummy job to apply branch filtering to"
+
 workflows:
   version: 2
 
   build:
     jobs:
-      - lint_and_docs
-      - ruby23rails50
-      - ruby23rails51
-      - ruby23rails52
+      - filter_branches:
+          filters:
+            branches:
+              only:
+                - master
+                - 1-4-stable
 
-      - ruby24rails50
-      - ruby24rails51
-      - ruby24rails52
+      - ruby23rails50:
+          requires:
+            - filter_branches
 
-      - ruby25rails50
-      - ruby25rails51
-      - ruby25rails52
+      - ruby23rails51:
+          requires:
+            - filter_branches
 
-      - jruby91rails50
-      - jruby91rails51
-      - jruby91rails52
+      - ruby23rails52:
+          requires:
+            - filter_branches
 
-      - jruby92rails50
-      - jruby92rails51
-      - jruby92rails52
+      - ruby24rails50:
+          requires:
+            - filter_branches
+
+      - ruby24rails51:
+          requires:
+            - filter_branches
+
+      - ruby24rails52:
+          requires:
+            - filter_branches
+
+      - ruby25rails50:
+          requires:
+            - filter_branches
+
+      - ruby25rails51:
+          requires:
+            - filter_branches
+
+      - ruby25rails52:
+          requires:
+            - filter_branches
+
+      - jruby91rails50:
+          requires:
+            - filter_branches
+
+      - jruby91rails51:
+          requires:
+            - filter_branches
+
+      - jruby91rails52:
+          requires:
+            - filter_branches
+
+      - jruby92rails50:
+          requires:
+            - filter_branches
+
+      - jruby92rails51:
+          requires:
+            - filter_branches
+
+      - jruby92rails52:
+          requires:
+            - filter_branches
