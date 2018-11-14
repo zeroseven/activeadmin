@@ -1,6 +1,6 @@
 module ActiveAdmin
   class PagePolicy < ApplicationPolicy
-    class Scope < Struct.new(:user, :scope)
+    class Scope < ApplicationPolicy::Scope
       def resolve
         scope
       end
