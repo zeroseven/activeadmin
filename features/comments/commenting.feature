@@ -184,9 +184,9 @@ Feature: Commenting
       """
         class ListCommentsForCommenterOnly < ActiveAdmin::AuthorizationAdapter
           def authorized?(action, subject = nil)
-            case subject
-            when normalized(ActiveAdmin::Comment)
-              user.email == "commenter@example.com"
+            # Disallow ActiveAdmin::Comment#index
+            if action == :read && subject == ActiveAdmin::Comment
+              false
             else
               true
             end
