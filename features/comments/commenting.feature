@@ -5,7 +5,11 @@ Feature: Commenting
   I want to store and view comments on a resource
 
   Background:
-    Given a post with the title "Hello World" written by "Jane Doe" exists
+    Given a configuration of:
+    """
+      ActiveAdmin.application.namespace(:admin).authorization_adapter = ActiveAdmin::AuthorizationAdapter
+    """
+    And a post with the title "Hello World" written by "Jane Doe" exists
 
   Scenario: View a resource with no comments
     Given a show configuration of:
