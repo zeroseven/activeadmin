@@ -208,8 +208,7 @@ Feature: Commenting
         class CommentsByCommenterOnly < ActiveAdmin::AuthorizationAdapter
           def scope_collection(collection, action = ActiveAdmin::Authorization::READ)
             if collection.is_a?(ActiveRecord::Relation) && collection.klass == ActiveAdmin::Comment
-              collection.joins("LEFT JOIN admin_users ON active_admin_comments.author_id = admin_users.id").
-                where("admin_users.email = ?", "admin@example.com")
+              collection.where(author: AdminUser.find_by(email: "admin@example.com"))
             else
               collection
             end
